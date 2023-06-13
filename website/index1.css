@@ -1,0 +1,11 @@
+.s1{
+    width: 100%;
+    height: calc(100% - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.s1 img{
+    width: 100%;
+}

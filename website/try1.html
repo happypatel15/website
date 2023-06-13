@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+
+
+        .carousel-div {
+            margin-top: 10px;
+            background-color: yellow;
+            min-width: 320px;
+            min-height: 100px;
+            width: 100%;
+            height: 50vh;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .div1 {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            background-color: azure;
+            align-content: space-between;
+            align-items: center;
+        }
+
+        .div1-right {
+            min-height: 50px;
+            min-width: 50px;
+            background-color: black;
+        }
+
+        .div1-left {
+            min-width: 50px;
+            min-height: 50px;
+            background-color: blanchedalmond;
+        }
+
+        @media screen and (min-width:319px) {
+            .navbar-div {
+                background-color: aliceblue;
+                height: 50px;
+                min-width: 320px;
+                width: 100vw;
+            }
+            .navbar-div>button{
+                display: none;
+            }
+            .navbar-max-320-icon{
+                display: none;
+            }
+            .div-clg-name{
+                display: none;
+            }
+            .button-close-nav{
+                display: none;
+            }
+        }
+        @media screen and (max-width:320px) {
+            .navbar-div {
+
+                background-color: gray;
+                height: 40px;
+                min-width: 320px;
+                width: 100vw;
+            }
+            .button-show-nav{
+                display: inline;
+                padding: 0px;
+                margin-top: 5px;
+                margin-left: 10px;
+                border-radius: 10px;
+                border: 0px;
+                height: 30px;
+            }
+            .button-close-nav{
+                display: none;
+                padding: 0px;
+                margin-top: 5px;
+                margin-left: 10px;
+                border-radius: 10px;
+                border: 0px;
+                height: 30px;
+            }
+            .navbar-max-320-icon{
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                border-radius: 10px;
+                background-color: aliceblue;
+            }
+
+            .div-clg-name{
+                display: inline-block;
+                width: 150px;
+                height: 30px;
+                background-color: azure;
+                margin-left: 15%;
+                border-radius: 10px;
+            }
+            .navbar-hide{
+                width: 0px;
+                transition: all 1s;
+            }
+            .navbar-show{
+                height: 100vh;
+                width: 100vw;
+                transition: all 1s;
+            }
+        }
+    </style>
+    <script>
+        function opennavbar(){
+            const navbartag = document.getElementById('navbar-hided')
+            const buttontag = document.getElementById('nav-btn')
+            const buttonclose = document.getElementById('nav-close')
+            const nav = document.getElementById('nav-tag')
+            navbartag.classList.remove('navbar-hide')
+            navbartag.classList.add('navbar-show')
+
+            buttontag.style.display="none";
+            buttonclose.style.display="inline-block";
+
+            nav.style.backgroundColor="red";
+        }
+
+        function closenavbar(){
+            const navbartag = document.getElementById('navbar-hided')
+            const buttontag = document.getElementById('nav-btn')
+            const buttonclose = document.getElementById('nav-close')
+            const nav = document.getElementById('nav-tag')
+            navbartag.classList.remove('navbar-show')
+            navbartag.classList.add('navbar-hide')
+
+            if (window.matchMedia("(min-width:319px)").matches){
+                buttontag.style.display="none";
+            }
+            else{
+                buttontag.style.display="inline-block";
+            }
+            buttonclose.style.display="none";
+
+            nav.style.backgroundColor="gray";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar-div" id="nav-tag">
+        <button onclick="opennavbar()" class="button-show-nav" id="nav-btn"><div class="navbar-max-320-icon"></div></button>
+        <button onclick="closenavbar()" class="button-close-nav" id="nav-close"><div class="navbar-max-320-icon"></div></button>
+        <div class="div-clg-name"></div>
+    </div>
+    <div id="navbar-hided" class="navbar-hide"></div>
+    <div class="carousel-div">
+
+    </div>
+    <div class="div1">
+        <div class="div1-right"></div>
+        <div class="div1-left"></div>
+    </div>
+</body>
+
+</html>

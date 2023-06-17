@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            padding: 0px 0px;
+            margin: 0px 0px;
+        }
+
+        .nav {
+            display: block;
+            height: 50px;
+            width: calc(100%-20px);
+            background-color: aquamarine;
+            padding: 10px 10px;
+            border-radius: 10px;
+        }
+
+        .outer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .logo425{
+            display: none;
+        }
+        .logo {
+            height: 100%;
+            width: 200px;
+            background-color: black;
+        }
+
+        .menu {
+            height: 100%;
+            width: calc(100% - 200px);
+            background-color: blanchedalmond;
+        }
+
+        .menuul li{
+            display: inline;
+        }
+        
+        @media (max-width:425px) {
+
+            body,
+            html {
+                height: 500%;
+            
+            }
+            .divvv{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .logo425{
+                height: calc((100vh*8)/100);
+                width: calc(100% - 20px);
+                display: block;
+                background-color: aqua;
+            }
+            .nav {
+                position: fixed;
+                top: 7%;
+                left: 10px;
+                height: 80%;
+                width: 30px;
+                padding: 0px 0px;
+                margin-bottom: 10%;
+                border: 1px solid black;
+                border-top: 1px solid transparent;
+                animation-name: openmenu;
+                animation-duration: 1s;
+            }
+            .outer{
+                transition: all 1s;
+            }
+            @keyframes hidemenu {
+                from{
+                    left:10px ;
+                }
+                to{
+                    left: -20px;
+                }
+            }
+            @keyframes openmenu {
+                from{
+                    left:-20px ;
+                }
+                to{
+                    left:10px;
+                }
+            }
+            .icon {
+                height: 30px;
+                width: 10px;
+                position: fixed;
+                top: calc(50% - 15px);
+                left: 40px;
+                background-color: brown;
+            }
+
+            .outer {
+                display: block;
+            }
+
+            .logo {
+                display: none;
+            }
+
+            .menu {
+                height: calc(100% - 4px);
+                width: 100%;
+                border-radius: 10px;
+                padding: 2px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+               
+            }
+            .logo{
+              
+                width: 100%;
+                height: 10%;
+                background-color: gray;
+            }
+            .menu ul{
+                width: calc(100% - 6px);
+                height: calc(100% - 20px);
+                margin: 0px 0px;
+                padding: 10px 3px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .menu ul>li{
+                width: 100%;
+                border-radius: 10px;
+                background-color: blueviolet;
+            }
+            .menu ul>li>div{
+                height: 50px;
+                width: 100%;
+            }
+            #openicon {
+                display: none;
+                left: 0px;
+                
+            }
+
+            #closeicon {
+                display: block;
+                animation-name: openicon;
+                animation-duration: 1s  ;
+            }
+            @keyframes openicon {
+                from{
+                    left:10px ;
+                }
+                to{
+                    left:40px;
+                }
+            }
+        }
+    </style>
+    <script>
+        function hidemenu() {
+            const menutag = document.getElementById('outer')
+            menutag.style.animationName='hidemenu';
+            menutag.style.animationDuration='1s';
+            menutag.style.display = 'none';
+            document.getElementById('closeicon').style.display = 'none';
+            document.getElementById('openicon').style.display = 'block';
+        }
+
+        function openmenu() {
+            const menutag = document.getElementById('outer')
+            menutag.style.animationName='openmenu';
+            menutag.style.animationDuration='1s';
+            menutag.style.display = 'block';
+            document.getElementById('closeicon').style.display = 'block';
+            document.getElementById('openicon').style.display = 'none';
+        }
+    </script>
+</head>
+
+<body>
+   <div class="divvv"> <div class="logo425">
+
+   </div></div>
+    <nav class="nav" id="outer">
+        <div class="outer">
+            <div class="logo">
+
+            </div>
+            <div class="menu" id="menuu">
+                <ul class="menuul">
+                    <li><div></div></li>
+                    <li><div></div></li>
+                    <li><div></div></li>
+                    <li><div></div></li>
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="icon" onclick="hidemenu()" id="closeicon">
+
+    </div>
+    <div class="icon" onclick="openmenu()" id="openicon">
+
+    </div>
+</body>
+
+</html>
